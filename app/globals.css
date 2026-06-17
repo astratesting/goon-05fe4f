@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --sky: #bae6fd;
+    --mint: #a7f3d0;
+    --sand: #fde68a;
+    --soft-white: #f8fafc;
+    --ink: #1e293b;
+    --ink-light: #475569;
+    --border: #e2e8f0;
+    --surface: #ffffff;
+    --surface-muted: #f1f5f9;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--soft-white);
+    color: var(--ink);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-2xl bg-ink px-6 py-3 text-sm font-medium text-white transition-all hover:bg-ink/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/50 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 py-3 text-sm font-medium text-ink transition-all hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/30;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-2xl px-4 py-2 text-sm font-medium text-ink-light transition-all hover:bg-slate-100 hover:text-ink;
+  }
+
+  .card {
+    @apply rounded-3xl border border-slate-100 bg-white p-8 shadow-sm transition-all hover:shadow-md;
+  }
+
+  .input-field {
+    @apply w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-ink placeholder:text-slate-400 focus:border-sky focus:outline-none focus:ring-2 focus:ring-sky/30 transition-all;
+  }
+
+  .gradient-hero {
+    background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 30%, #d1fae5 60%, #fef9c3 100%);
+  }
+
+  .gradient-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 50%, #f0fdf4 100%);
+  }
+
+  .wave-divider {
+    position: relative;
+  }
+
+  .wave-divider::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 20px,
+      #bae6fd33 20px,
+      #bae6fd33 22px
+    );
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
